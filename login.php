@@ -51,6 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?phpif (isset($error)): ?>
                 <p style="color: red;"><?phpecho$error; ?></p>
             <?phpendif; ?><?phpendif; ?>
+
+            <!--Register Button-->
+            <form action="register.php" method="get">
+                <button type="submit">Register</button>
+            </form>
+        <?phpendif; ?>
     </main>
 
     <footer>
