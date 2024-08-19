@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan College Basketball League</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .top-right-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .search-bar-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-bar-container input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right-container">
+        <button onclick="location.href='login.php'">Login</button>
+    </div>
+
+    <main>
+        <h1>Michigan College Basketball League</h1>
+        <div class="button-container">
+            <button onclick="location.href='team_leaderboard.php'">View Team Leaderboard</button>
+            <button onclick="location.href='player_leaderboard.php'">View Player Leaderboard</button>
+            <button onclick="location.href='team_rosters.php'">View Team Rosters</button>
+            <button onclick="location.href='player_statistics.html'">View Player Statistics</button>
+        </div>
+
+        <div class="search-bar-container">
+            <form action="sql_query.php" method="post">
+                <input type="text" name="sql_query" placeholder="Type your SQL command here">
+                <button type="submit">Execute</button>
+            </form>
+        </div>
+
+        <form action="logout.php" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Michigan College Basketball League. All Rights Reserved.</p>
+        <p>Contact us at info@mcbballleague.com</p>
+    </footer>
+</body>
+</html>
