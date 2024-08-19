@@ -2,9 +2,9 @@
 // Start session
 session_start();
 
-// Database connection (you can replace the placeholders with your actual database details)
+// Database connection details
 $servername = "localhost";
-$username = "root";
+$username = "guest";
 $password = "";
 $dbname = "basketball_db";
 

@@ -1,52 +1,61 @@
 <?php
 session_start();
 
-// Database connection details
+// Database connection
 $servername = "localhost";
-$username = "root"; // Replace with your MySQL username
-$password = ""; // Replace with your MySQL password
+$db_username = "guest";
+$db_password = "";
 $dbname = "basketball_db";
 
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Handle Login
-    if (isset($_POST['login'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+    // Create a new connection
+    $conn = new mysqli($servername, $db_username, $db_password, $dbname);
 
-        // Prepare and bind
-        $stmt = $conn->prepare("SELECT username, password FROM users WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->store_result();
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($db_username, $db_password);
-            $stmt->fetch();
+    // Get form data
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-            if (password_verify($password, $db_password)) {
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
+    // Prepare and execute the query to fetch the user
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        // Verify the password
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['is_admin'] = $user['is_admin'];
+
+            // Redirect to the admin page for admin users
+            if ($_SESSION['is_admin']) {
+                header("Location: admin.php");
+                exit();
             } else {
-                $error = "Invalid username or password.";
+                // Redirect to a different page or index.html for non-admin users
+                header("Location: index.html");
+                exit();
             }
         } else {
             $error = "Invalid username or password.";
         }
-
-        $stmt->close();
+    } else {
+        $error = "Invalid username or password.";
     }
-}
 
-// Close the connection
-$conn->close();
+    // Close the connection
+    $stmt->close();
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -76,18 +85,18 @@ $conn->close();
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit" name="login">Login</button>
+                <button type="submit">Login</button>
             </form>
 
             <?php if (isset($error)): ?>
                 <p style="color: red;"><?php echo $error; ?></p>
             <?php endif; ?>
-        <?php endif; ?>
 
-        <!--Register Button-->
-        <form action="register.php" method="get">
-            <button type="submit">Register</button>
-        </form>
+            <!-- Register Button -->
+            <form action="register.php" method="get">
+                <button type="submit">Register</button>
+            </form>
+        <?php endif; ?>
     </main>
 
     <footer>
