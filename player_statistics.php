@@ -19,7 +19,7 @@ $team_name = $_POST['team'];
 $sql = $conn->prepare("SELECT PLAYER_FNAME, PLAYER_LNAME, PLAYER_POINTS, PLAYER_REBOUNDS, PLAYER_ASSISTS, PLAYER_FREETHROWS, PLAYER_STEALS, PLAYER_BLOCKS, PLAYER_POSITION
                       FROM player 
                       WHERE team_name = ? 
-                      ORDER BY player_points DESC");
+                      ORDER BY PLAYER_LNAME ASC");
 $sql->bind_param("s", $team_name);
 
 // Execute the query
@@ -36,7 +36,7 @@ $result = $sql->get_result();
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1><?php echo htmlspecialchars($team_name); ?> Leaderboard</h1>
+    <h1><?php echo htmlspecialchars($team_name); ?> Player Statistics</h1>
     <table class="leaderboard-table">
         <tr>
             <th>Player First Name</th>
