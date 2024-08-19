@@ -4,7 +4,7 @@ session_start();
 
 // Database connection details
 $servername = "localhost";
-$username = "guest";
+$username = "root";
 $password = "";
 $dbname = "basketball_db";
 
