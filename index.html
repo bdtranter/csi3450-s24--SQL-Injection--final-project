@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michigan College Basketball League</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .top-right-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="team_leaderboard.php">View Team Leaderboard</a></li>
-                <li><a href="player_leaderboard.php">View Player Leaderboard</a></li>
-                <li><a href="team_rosters.php">View Team Rosters</a></li>
-                <li><a href="player_statistics.html">View Player Statistics</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="top-right-container">
+        <button onclick="location.href='login.php'">Login</button>
+    </div>
 
     <main>
         <h1>Michigan College Basketball League</h1>
@@ -25,7 +25,11 @@
             <button onclick="location.href='player_leaderboard.php'">View Player Leaderboard</button>
             <button onclick="location.href='team_rosters.php'">View Team Rosters</button>
             <button onclick="location.href='player_statistics.html'">View Player Statistics</button>
-        </div><form action="logout.php" method="post" style="margin-top: 20px;"><button type="submit">Logout</button>
+        </div>
+
+        <form action="logout.php" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
     </main>
 
     <footer>
