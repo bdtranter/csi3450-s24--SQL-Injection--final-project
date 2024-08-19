@@ -25,7 +25,6 @@ $sql->bind_param("s", $team_name);
 // Execute the query
 $sql->execute();
 $result = $sql->get_result();
-
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +33,11 @@ $result = $sql->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1><?php echo htmlspecialchars($team_name); ?> Leaderboard</h1>
-    <table border="1">
+    <table class="leaderboard-table">
         <tr>
             <th>Player First Name</th>
             <th>Player Last Name</th>
@@ -67,7 +67,7 @@ $result = $sql->get_result();
                       </tr>";
             }
         } else {
-            echo "<tr><td colspan='4'>No players found for this team.</td></tr>";
+            echo "<tr><td colspan='9'>No players found for this team.</td></tr>";
         }
         ?>
     </table>

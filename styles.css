@@ -100,3 +100,29 @@ footer p {
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
+
+/* LeaderBoard table styling */
+.leaderboard-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.leaderboard-table th, .leaderboard-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+.leaderboard-table th {
+    background-color: #0033a0;
+    color: white;
+}
+.leaderboard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.leaderboard-table tr:hover {
+    background-color: #ddd;
+}
+.leaderboard-table th.sortable:hover {
+    cursor: pointer;
+}
