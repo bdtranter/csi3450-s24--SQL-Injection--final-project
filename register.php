@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
         // Insert new user into the database
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (username, password, is_admin) VALUES (?, ?, FALSE)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $user, $hashed_password);
 
