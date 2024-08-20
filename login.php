@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirect to the admin page for admin users
             if ($_SESSION['is_admin']) {
-                header("Location: admin.php");
+                header("Location: adminindex.html");
                 exit();
             } else {
                 // Redirect to a different page or index.html for non-admin users
