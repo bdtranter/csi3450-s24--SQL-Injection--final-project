@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 // Redirect to a different page or index.html for non-admin users
-                header("Location: index.html");
+                header("Location: userindex.html");
                 exit();
             }
         } else {
