@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michigan College Basketball League</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-box-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .content-box {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .content-box h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .content-box p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1>Michigan College Basketball League - User Panel</h1>
+        <div class="button-container">
+            <button onclick="location.href='team_leaderboard.php'">View Team Leaderboard</button>
+            <button onclick="location.href='player_leaderboard.php'">View Player Leaderboard</button>
+            <button onclick="location.href='team_rosters.php'">View Team Rosters</button>
+            <button onclick="location.href='player_statistics.html'">View Player Statistics</button>
+        </div>
+
+        <div class="content-box-container">
+            <div class="content-box">
+                <h2>Basketball Cool Tips</h2>
+                <p>Keep your knees bent and stay low when playing defense. It gives you better balance and control!</p>
+            </div>
+            <div class="content-box">
+                <h2>Fun Facts</h2>
+                <p>Did you know? The basketball hoop was originally a peach basket attached to a wall.</p>
+            </div>
+            <div class="content-box">
+                <h2>Pro Player Stats</h2>
+                <p>LeBron James has averaged 27.2 points per game over his career as of 2024.</p>
+            </div>
+        </div>
+
+        <form action="logout.php" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Michigan College Basketball League. All Rights Reserved.</p>
+        <p>Contact us at info@mcbballleague.com</p>
+    </footer>
+</body>
+</html>
