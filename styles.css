@@ -1,4 +1,4 @@
-/* Reset some basic styles */
+
 body, h1, ul, p, nav, footer {
     margin: 0;
     padding: 0;
@@ -91,17 +91,17 @@ footer p {
 }
 
 .dropdown-button {
-    background-color: #f1f1f1; /* Light gray background */
-    border: 1px solid #ccc; /* Gray border */
-    padding: 10px; /* Padding around the text */
-    font-size: 16px; /* Font size */
-    border-radius: 5px; /* Rounded corners */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    background-color: #f1f1f1; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    width: 100%; 
+    box-sizing: border-box;
+    transition: all 0.3s ease; 
 }
 
-/* LeaderBoard table styling */
+
 .leaderboard-table {
     margin: 0 auto;
     border-collapse: collapse;
